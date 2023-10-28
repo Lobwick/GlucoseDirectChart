@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  
+  mock-server:
+    image: mockserver/mockserver:5.15.0
+    ports:
+      - "1080:1080"
+    volumes:
+      - "./mock-server:/config"

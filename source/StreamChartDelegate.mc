@@ -47,8 +47,10 @@ class StreamChartDelegate  extends System.ServiceDelegate {
         System.println("make request");
                 //http://ip.jsontest.com/
                 //"https://jsonplaceholder.typicode.com/todos/115",
+				//"http://ip.jsontest.com",
+				
         Communications.makeWebRequest(
-            "http://ip.jsontest.com",
+            "http://localhost:1080/api/v2/properties/bgnow,rawbg,delta",
             {},
             options,
             method(:onReceive)

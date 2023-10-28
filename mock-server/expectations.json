@@ -1,0 +1,95 @@
+{
+  "httpRequest": {
+    "path": "/api/v2/properties/bgnow,rawbg,delta"
+  },
+  "httpResponse": {
+    "body": {
+      "bgnow":{
+         "mean":156.33333333333334,
+         "last":153,
+         "mills":1698532020000,
+         "sgvs":[
+            {
+               "_id":"C1542DB5-7491-4A2E-9E8C-C81E867170E9",
+               "mgdl":153,
+               "mills":1698532020000,
+               "device":"GlucoseDirect",
+               "direction":"DoubleDown",
+               "type":"sgv",
+               "scaled":153
+            },
+            {
+               "_id":"031B5097-691D-45A1-AD72-041E26444FA2",
+               "mgdl":158,
+               "mills":1698531960000,
+               "device":"GlucoseDirect",
+               "direction":"Flat",
+               "type":"sgv",
+               "scaled":158
+            },
+            {
+               "_id":"F28E7607-92D1-4CF0-B13A-2B3A6A721915",
+               "mgdl":158,
+               "mills":1698531900000,
+               "device":"GlucoseDirect",
+               "direction":"Flat",
+               "type":"sgv",
+               "scaled":158
+            }
+         ]
+      },
+      "rawbg":{
+         
+      },
+      "delta":{
+         "absolute":-0.6666666666666572,
+         "elapsedMins":3,
+         "interpolated":false,
+         "mean5MinsAgo":157,
+         "times":{
+            "recent":1698532020000,
+            "previous":1698531840000
+         },
+         "mgdl":-1,
+         "scaled":-1,
+         "display":"-1",
+         "previous":{
+            "mean":157,
+            "last":158,
+            "mills":1698531840000,
+            "sgvs":[
+               {
+                  "_id":"123E9F6E-8E00-40B0-BC57-9A17AC4C88C6",
+                  "mgdl":158,
+                  "mills":1698531840000,
+                  "device":"GlucoseDirect",
+                  "direction":"Flat",
+                  "type":"sgv",
+                  "scaled":158
+               },
+               {
+                  "_id":"5A6F8F04-EF5A-46CC-8CF8-C0D6C1CAE6E0",
+                  "mgdl":157,
+                  "mills":1698531720000,
+                  "device":"GlucoseDirect",
+                  "direction":"Flat",
+                  "type":"sgv",
+                  "scaled":157
+               },
+               {
+                  "_id":"A348304B-AB29-432F-B7B1-768A3AA58FF5",
+                  "mgdl":156,
+                  "mills":1698531660000,
+                  "device":"GlucoseDirect",
+                  "direction":"Flat",
+                  "type":"sgv",
+                  "scaled":156
+               }
+            ]
+         }
+      }
+   }
+  }
+}
+
+
