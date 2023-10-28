@@ -1,6 +1,9 @@
-import Toybox.Graphics;
+using Toybox.WatchUi;
+using StreamChart;
+import Toybox.Communications;
 import Toybox.Lang;
-import Toybox.WatchUi;
+import Toybox.Time;
+import Toybox.Background;
 import Toybox.System;
 
 class StreamChartView extends WatchUi.DataField {
@@ -9,14 +12,16 @@ class StreamChartView extends WatchUi.DataField {
 
     function initialize() {
         DataField.initialize();
+        System.println("init view");
     }
 
-    public function onReceive(args as Dictionary or String or Array or Null) as Void {
-        System.println("on receive view");
+    function onReceive(args as Dictionary or String or Array or  Null) as Void{
+        System.println("on receive");
     }
 
     // Load your resources here
     function onLayout(dc) {
+        System.println("on layout");
         setLayout(Rez.Layouts.MainLayout(dc));
         chart = new StreamChart.Chart(dc, null);   
     }
@@ -25,10 +30,12 @@ class StreamChartView extends WatchUi.DataField {
     // the state of this View and prepare it to be shown. This includes
     // loading resources into memory.
     function onShow() {
+         System.println("on onShow");
     }
 
     // Update the view
     function onUpdate(dc) {
+         System.println("on onUpdate");
         // Call the parent onUpdate function to redraw the layout
         View.onUpdate(dc);
         chart.draw(dc);
@@ -38,6 +45,7 @@ class StreamChartView extends WatchUi.DataField {
     // state of this View here. This includes freeing resources from
     // memory.
     function onHide() {
+         System.println("on onHide");
     }
 
 }

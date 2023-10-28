@@ -1,12 +1,12 @@
  module StreamChart {
    using Toybox.Graphics;  
    using Toybox.Math;
-   using Axes;
+   import Axes;
    using ChartInitialization;
    using Toybox.System;
-   using Geometry as Geo;
+   import Geometry;
    using MathHelpers as Mh;
-   using ChartInterpolation as Ci;
+   //using ChartInterpolation as Ci;
  
    class Chart {
      hidden var options;
@@ -29,8 +29,8 @@
      }
      
      function createAxis() {
-     	xAxis = new Axes.XAxis(corners["bottomLeftCorner"], corners["bottomRightCorner"]);
-     	yAxis = new Axes.YAxis(corners["bottomLeftCorner"], corners["topLeftCorner"]);    
+     	xAxis = new XAxis(corners["bottomLeftCorner"], corners["bottomRightCorner"]) as XAxis;
+     	yAxis = new YAxis(corners["bottomLeftCorner"], corners["topLeftCorner"]) as YAxis;    
      }
      
      
