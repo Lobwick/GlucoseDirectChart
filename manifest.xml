@@ -4,7 +4,6 @@
     <iq:application entry="StreamChartApp" id="41fc793f-71c8-4619-94c4-79579641167f" launcherIcon="@Drawables.LauncherIcon" minSdkVersion="3.1.0" name="@Strings.AppName" type="datafield" version="0.0.0">
         <iq:products>
             <iq:product id="edge1040"/>
-            <iq:product id="fr945"/>
         </iq:products>
         <iq:permissions>
             <iq:uses-permission id="Sensor"/>

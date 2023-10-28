@@ -1,5 +1,7 @@
-using Toybox.WatchUi;
-using StreamChart;
+import Toybox.Graphics;
+import Toybox.Lang;
+import Toybox.WatchUi;
+import Toybox.System;
 
 class StreamChartView extends WatchUi.DataField {
   
@@ -7,6 +9,10 @@ class StreamChartView extends WatchUi.DataField {
 
     function initialize() {
         DataField.initialize();
+    }
+
+    public function onReceive(args as Dictionary or String or Array or Null) as Void {
+        System.println("on receive view");
     }
 
     // Load your resources here

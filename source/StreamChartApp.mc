@@ -1,5 +1,6 @@
-using Toybox.Application;
-using Toybox.WatchUi;
+import Toybox.Application;
+import Toybox.WatchUi;
+import Toybox.Lang;
 
 class StreamChartApp extends Application.AppBase {
 
@@ -17,7 +18,9 @@ class StreamChartApp extends Application.AppBase {
 
     // Return the initial view of your application here
     function getInitialView() {
-        return [ new StreamChartView(), new StreamChartDelegate() ];
+        var view = new StreamChartView();
+        var delegate = new StreamChartDelegate(view.method(:onReceive));
+         return [view, delegate] as Array<Views or InputDelegates>;
     }
 
 }
