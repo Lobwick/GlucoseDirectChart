@@ -12,7 +12,6 @@ class StreamChartView extends WatchUi.DataField {
 
     function initialize() {
         DataField.initialize();
-        System.println("init view");
     }
 
     function onReceive(args as Dictionary or String or Array or  Null) as Void{
@@ -21,7 +20,6 @@ class StreamChartView extends WatchUi.DataField {
 
     // Load your resources here
     function onLayout(dc) {
-        System.println("on layout");
         setLayout(Rez.Layouts.MainLayout(dc));
         chart = new StreamChart.Chart(dc, null);   
     }
@@ -30,7 +28,6 @@ class StreamChartView extends WatchUi.DataField {
     // the state of this View and prepare it to be shown. This includes
     // loading resources into memory.
     function onShow() {
-         System.println("on onShow");
     }
 
     // Update the view
@@ -45,7 +42,6 @@ class StreamChartView extends WatchUi.DataField {
     // state of this View here. This includes freeing resources from
     // memory.
     function onHide() {
-         System.println("on onHide");
     }
 
 }

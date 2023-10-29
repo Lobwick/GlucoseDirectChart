@@ -4,6 +4,7 @@ import Toybox.WatchUi;
 import Toybox.Time;
 import Toybox.Background;
 import Toybox.System;
+import GlucoseData;
 
 (:background)
 class StreamChartDelegate  extends System.ServiceDelegate {
@@ -45,10 +46,6 @@ class StreamChartDelegate  extends System.ServiceDelegate {
             }
         };
         System.println("make request");
-                //http://ip.jsontest.com/
-                //"https://jsonplaceholder.typicode.com/todos/115",
-				//"http://ip.jsontest.com",
-				
         Communications.makeWebRequest(
             "http://localhost:1080/api/v2/properties/bgnow,rawbg,delta",
             {},
@@ -57,12 +54,65 @@ class StreamChartDelegate  extends System.ServiceDelegate {
         );
     }
 
+	public function type_name(obj) {
+    if (obj instanceof Toybox.Lang.Number) {
+        return "Number";
+    } else if (obj instanceof Toybox.Lang.Long) {
+        return "Long";
+    } else if (obj instanceof Toybox.Lang.Float) {
+        return "Float";
+    } else if (obj instanceof Toybox.Lang.Double) {
+        return "Double";
+    } else if (obj instanceof Toybox.Lang.Boolean) {
+        return "Boolean";
+    } else if (obj instanceof Toybox.Lang.String) {
+        return "String";
+    } else if (obj instanceof Toybox.Lang.Array) {
+        var s = "Array [";
+        for (var i = 0; i < obj.size(); ++i) {
+            s += type_name(obj);
+            s += ", ";
+        }
+        s += "]";
+        return s;
+    } else if (obj instanceof Toybox.Lang.Dictionary) {
+        var s = "Dictionary{";
+        var keys = obj.keys();
+        var vals = obj.values();
+        for (var i = 0; i < keys.size(); ++i) {
+            s += keys;
+            s += ": ";
+            s += vals;
+            s += ", ";
+        }
+        s += "}";
+        return s;
+    } else if (obj instanceof Toybox.Time.Gregorian.Info) {
+        return "Gregorian.Info";
+    } else {
+        return "???";
+    }
+}
+
+	public function parseData(data as Dictionary) {
+		var myDatas = {};
+		var dataToAdd = data["bgnow"]["sgvs"] as Array;
+		for(var i=0; i < dataToAdd.size(); ++i) {
+			myDatas.put(dataToAdd[i].get("mills"), dataToAdd[i].get("mgdl"));
+		}
+		dataToAdd = data["delta"]["previous"]["sgvs"] as Array;
+		for(var i=0; i < dataToAdd.size(); ++i) {
+			myDatas.put(dataToAdd[i].get("mills"), dataToAdd[i].get("mgdl"));
+		}
+	}
+
 	public function onReceive(responseCode as Number, data as  Dictionary or String or Null) as Void{
 		System.println("totot");
 		System.println("receive data ");
 		if (responseCode == 200) {
 			System.println("200");
-			System.println(data);
+			//System.println(data);
+			parseData(data);
 			//   _notify.invoke(data);
 		} else {
 			System.println("djzeljdzelkdez");
